@@ -64,7 +64,7 @@ export default function Mainpage(){
                         average Percentile 72% of all the engineers who took this assessment</p>
                         <img className="w-10 h-10 bg-[#3180db15] border-2 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsIPjih74aUm4iTNet1tvPborvKJRKDlytLA&s"></img>
                     </div>
-                    <div className="p-3"><LineChart /></div>
+                    // <div className="p-3"><LineChart /></div>
                 </div>
             </div>
             <div className="md:w-2/5">
@@ -114,7 +114,7 @@ export default function Mainpage(){
                     </div>
                     <p className="mt-2 text-gray-600 text-sm p-1"><span className="font-bold">You Scored {score} Questions correct out of 15. </span> 
                     However it still needs some improvements</p>
-                    <DonutChart />
+                    // <DonutChart />
                 </div>
             </div>
        </div>
