@@ -1,21 +1,18 @@
 "use client";
-import { useState } from "react";
-import Card from "./Card";
-import DonutChart from "@/components/DonutChart";
-import LineChart from "./LineChart";
+import dynamic from 'next/dynamic';
 import { toggleClick } from '../redux/updateSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
+const DonutChart = dynamic(() => import('@/components/DonutChart'), { ssr: false });
+const LineChart = dynamic(() => import('./LineChart'), { ssr: false });
+
 export default function Mainpage(){
-    const isClicked = useSelector((state) => state.update_redux_slice.isClicked);
+    const { isClicked, rank, percentile, score } = useSelector((state) => state.update_redux_slice);
     const dispatch = useDispatch();
 
     const handleToggle = () => {
         dispatch(toggleClick());
     };
-    const rank = useSelector((state) => state.update_redux_slice.rank); 
-    const percentile = useSelector((state) => state.update_redux_slice.percentile); 
-    const score = useSelector((state) => state.update_redux_slice.score); 
     const totalMarks = 15;
 
     return(
@@ -64,7 +61,7 @@ export default function Mainpage(){
                         average Percentile 72% of all the engineers who took this assessment</p>
                         <img className="w-10 h-10 bg-[#3180db15] border-2 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsIPjih74aUm4iTNet1tvPborvKJRKDlytLA&s"></img>
                     </div>
-                    <div className="p-3"><LineChart /></div>
+                    {/* <div className="p-3"><LineChart /></div> */}
                 </div>
             </div>
             <div className="md:w-2/5">
@@ -114,7 +111,7 @@ export default function Mainpage(){
                     </div>
                     <p className="mt-2 text-gray-600 text-sm p-1"><span className="font-bold">You Scored {score} Questions correct out of 15. </span> 
                     However it still needs some improvements</p>
-                    <DonutChart />
+                    {/* <DonutChart /> */}
                 </div>
             </div>
        </div>
