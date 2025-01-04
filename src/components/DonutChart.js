@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import CanvasJSReact from '@canvasjs/react-charts';
