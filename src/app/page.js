@@ -1,10 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
-import Nav from "@/components/Nav";
-import Menu from "@/components/Menu";
-import Mainpage from "@/components/Mainpage";
-import Card from "@/components/Card";
+import dynamic from "next/dynamic";
 import { useSelector, useDispatch } from 'react-redux';
+
+const Nav = dynamic(() => import("@/components/Nav"), { ssr: false });
+const Menu = dynamic(() => import("@/components/Menu"), { ssr: false });
+const Mainpage = dynamic(() => import("@/components/Mainpage"), { ssr: false });
+const Card = dynamic(() => import("@/components/Card"), { ssr: false });
 
 export default function Home() {
   const isClicked = useSelector((state) => state.update_redux_slice.isClicked);
